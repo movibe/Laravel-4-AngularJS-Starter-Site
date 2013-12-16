@@ -1,8 +1,9 @@
 angular.module("myApp",['ngResource','ngSanitize'])
-    .config(['$routeProvider',function($routeProvider){
+    .config(['$routeProvider', '$locationProvider',function($routeProvider, $locationProvider){
         $routeProvider.when('/',{templateUrl:'app/partials/login.html', controller: 'loginController'})
         $routeProvider.when('/home',{templateUrl:'app/partials/home.html', controller: 'homeController'})
         $routeProvider.otherwise({redirectTo :'/'})
+		$locationProvider.html5Mode(true);
     }]).config(function($httpProvider){
 
         var interceptor = function($rootScope,$location,$q,Flash){
