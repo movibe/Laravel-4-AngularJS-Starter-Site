@@ -1,4 +1,4 @@
-angular.module("myApp",['ngResource','ngSanitize'])
+angular.module("myApp",['ngResource','ngSanitize', 'ngRoute', 'ui.bootstrap'])
     .config(['$routeProvider', '$locationProvider',function($routeProvider, $locationProvider){
         $routeProvider.when('/',{templateUrl:'app/partials/login.html', controller: 'loginController'})
         $routeProvider.when('/home',{templateUrl:'app/partials/home.html', controller: 'homeController'})
