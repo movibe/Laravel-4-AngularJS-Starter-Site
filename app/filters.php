@@ -35,14 +35,15 @@ App::after(function($request, $response)
 Route::filter('serviceAuth', function(){
     if(!Auth::check()){
         return Response::json([
-            'flash' => 'you should be connect to access this URL'
+			'status' => 'error',
+            'message' => 'Access Denied.'
         ], 401);
     }
 });
 Route::filter('serviceCSRF',function(){
     if (Session::token() != Request::header('csrf_token')) {
         return Response::json([
-            'message' => 'I am a teapot.'
+            'message' => "I'm a teapot."
         ], 418);
     }
 });

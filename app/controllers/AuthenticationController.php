@@ -13,7 +13,8 @@ class AuthenticationController extends \BaseController {
         Auth::logout();
 
         return Response::json([
-                'flash' => 'you have been disconnected'],
+				'status' => 'success',
+				'message' => 'Logout Successful.'],
             200
         );
 	}
@@ -43,13 +44,15 @@ class AuthenticationController extends \BaseController {
         if ( Auth::attempt($credentials) ) {
 
             return Response::json([
+					'status' => 'success',
                     'user' => Auth::user()->toArray()],
                 202
             );
 
         }else{
             return Response::json([
-                    'flash' => 'Authentication failed'],
+                    'status' => 'error',
+					'message' => 'Invalid Login Credentials.'],
                 401
             );
         }

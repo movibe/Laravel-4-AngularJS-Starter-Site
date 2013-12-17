@@ -11,13 +11,13 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('index');
-});
-
+/** all API routes go first, any uncaught routes go to index */
 Route::group(array('prefix' => 'service'), function() {
-
     Route::resource('authenticate', 'AuthenticationController');
     Route::resource('movies', 'MovieController');
 });
+
+Route::any('{all}', function($uri)
+{
+	return View::make('index');
+})->where('all', '.*');

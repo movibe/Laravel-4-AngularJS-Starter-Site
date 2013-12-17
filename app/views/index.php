@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>Laravel4 AngularJS Starter Site</title>
-    <link href="app/css/bootstrap.min.css" rel="stylesheet">
-    <link href="app/css/bootstrap-responsive.min.css" rel="stylesheet">
+	<link href="app/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="app/css/bootstrap.min.css" rel="stylesheet">
     <link href="app/css/app.css" rel="stylesheet" />
 </head>
 <body ng-app="myApp">
