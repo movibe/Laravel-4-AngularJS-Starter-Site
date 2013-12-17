@@ -21,7 +21,7 @@ angular.module('myApp')
                 Flash.clear()
                 sessionStorage.authenticated = true;
             },function(response){
-					$scope.alerts = [{ type: "danger", msg: response.data.message }];
+					$scope.alerts = [{ type: "warning", msg: response.data.message }];
             })
         }
 
