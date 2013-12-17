@@ -18,6 +18,6 @@ Route::group(array('prefix' => 'service'), function() {
 });
 
 Route::any('{all}', function($uri)
-{
-	return View::make('index');
-})->where('all', '.*');
+	{
+		return View::make('index');
+	})->where('all', '.*');

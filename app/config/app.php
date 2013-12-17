@@ -114,6 +114,14 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
+		/*** Additional Providers ***/
+		'Robbo\Presenter\PresenterServiceProvider', // Presenter
+		'Zizaco\Entrust\EntrustServiceProvider', // Entrust Provider for roles
+
+		/* Uncomment for use in development */
+//		'Way\Generators\GeneratorsServiceProvider', // Generators
+//		'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider', // IDE Helpers
+
 	),
 
 	/*
@@ -179,6 +187,10 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
+		/*** Additional Aliases ***/
+		'Entrust'         => 'Zizaco\Entrust\EntrustFacade', // Entrust Alias
+		'Presenter'       => 'Robbo\Presenter\Presenter', // Presenter
+		'Presentable'     => 'Robbo\Presenter\PresentableInterface', // Presenter
 	),
 
 );

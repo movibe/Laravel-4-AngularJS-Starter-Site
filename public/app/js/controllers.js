@@ -1,8 +1,17 @@
 angular.module('myApp')
     .controller('loginController',function($scope,$sanitize,$location,Authenticate,Flash){
 
+		/********
+		 * Alerts
+		 ********/
 		$scope.alerts = [];
+		$scope.closeAlert = function(index) {
+			$scope.alerts.splice(index, 1);
+		};
 
+		/********
+		 * Login
+		 ********/
 		$scope.login = function(){
             Authenticate.save({
                 'email': $sanitize($scope.email),
@@ -12,13 +21,11 @@ angular.module('myApp')
                 Flash.clear()
                 sessionStorage.authenticated = true;
             },function(response){
-					console.log(response.data);
 					$scope.alerts = [{ type: "danger", msg: response.data.message }];
             })
         }
-		$scope.closeAlert = function(index) {
-			$scope.alerts.splice(index, 1);
-		};
+
+
 })
     .controller('homeController',function($scope,$location,Authenticate, Movies,Flash){
         if (!sessionStorage.authenticated){
