@@ -15,7 +15,6 @@
 		"ng-i18n": "angular/bower-angular-i18n#1.2.0-rc.3",
 		"ng-resource": "angular/bower-angular-resource#1.2.0-rc.3",
 		"ui-bootstrap": "angular-ui/bootstrap-bower",
-		"ui-bootstrap3": "https://github.com/angular-ui/bootstrap/archive/bootstrap3.zip",
 		"ui-router": "angular-ui/ui-router",
 		"ui-utils": "angular-ui/ui-utils",
 		"ng-rest": "mgonto/restangular",

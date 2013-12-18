@@ -1,15 +1,25 @@
 ## Installation
 
-### Step 1
-Install composer dependencies
-```
-	Composer install --dev
-```
+### Requirments
+    php >= 5.3
+    NodeJS
+    Bower (I will added this to grunt if I can)
+	Grunt
 
-Install bower dependencies
-```
-	Bower install
-```
+### Step 1 - Install dependencies
+
+	// Install Composer Dependencies
+    composer install --dev
+    // Install NodeJS dependencies
+    npm install
+    // Install Bower Dependencies
+    bower install
+    // Run grunt for initial setup
+    grunt
+
+If you have issues using npm install use the code below
+
+    npm install --no-bin-links
 
 ## Packages
 
@@ -37,3 +47,25 @@ Install bower dependencies
 ## laravel 4 & AngularJS E2E secured SPA
 
 Link to the article: http://blog.neoxia.com/laravel4-and-angularjs/
+
+## The MIT License (MIT)
+
+Copyright (c) <year> <copyright holders>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

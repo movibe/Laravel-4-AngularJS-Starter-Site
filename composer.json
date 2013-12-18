@@ -1,7 +1,15 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "bktz/laravel4-angularjs-starter-site",
+    "description": "Laravel 4 AngularJS Starter Site",
+    "keywords": ["laravel", "angularjs", "starter"],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Benjamin Katznelson",
+			"homepage": "http://ca.linkedin.com/in/benikatznelson",
+			"role": "Developer"
+		}
+	],
 	"require": {
 		"laravel/framework": "4.0.*",
 		"laravelbook/ardent": "2.1.x",
