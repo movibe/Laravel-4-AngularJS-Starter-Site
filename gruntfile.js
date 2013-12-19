@@ -2,38 +2,175 @@ module.exports = function(grunt) {
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+
+		//Directories
 		bowerDir: 'public/vendor',
+		assetsDir: 'public/assets',
+		appDir: 'public/app/js',
 
-		clean: ['assets/tmp'],
-
-		concat: {
-			css: {
-				src: ['assets/tmp/bootstrap.css', 'assets/tmp/font-awesome.css'],
-				dest: 'assets/tmp/concat.css'
-			},
-			js: {
-				src: ['assets/js/jquery.js', 'assets/js/bootstrap.js'],
-				dest: 'assets/tmp/concat.js'
-			}
-		},
+		clean: ['<%= assetsDir %>/tmp'],
 
 		copy: {
+			application: {
+				files: [
+					{ expand: true, cwd: '<%= appDir %>', src: ['*.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			angular: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/angular', src: ['angular.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			angularCookies: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/angular-cookies', src: ['angular-cookies.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
 			bootstrap: {
 				files: [
-					{ expand: true, cwd: '<%= bowerDir %>/bootstrap/less', src: ['bootstrap.less'], dest: 'assets/tmp/bootstrap' },
-					{ expand: true, cwd: '<%= bowerDir %>/bootstrap/dist/js', src: ['bootstrap.js'], dest: 'assets/js' }
+					{ expand: true, cwd: '<%= bowerDir %>/bootstrap/less', src: ['bootstrap.less'], dest: '<%= assetsDir %>/tmp/bootstrap' },
+					{ expand: true, cwd: '<%= bowerDir %>/bootstrap/dist/js', src: ['bootstrap.js'], dest: '<%= assetsDir %>/js' }
 				]
 			},
 			fontawesome: {
 				files: [
-					{ expand: true, cwd: '<%= bowerDir %>/font-awesome/less', src: ['font-awesome.less'], dest: 'assets/tmp/font-awesome' },
-					{ expand: true, cwd: '<%= bowerDir %>/font-awesome/font', src: ['*'], dest: 'public/fonts' }
+					{ expand: true, cwd: '<%= bowerDir %>/font-awesome/less', src: ['font-awesome.less'], dest: '<%= assetsDir %>/tmp/font-awesome' },
+					{ expand: true, cwd: '<%= bowerDir %>/font-awesome/font', src: ['*'], dest: '<%= assetsDir %>/fonts' }
 				]
 			},
-			jquery: {
+			iehtml5: {
 				files: [
-					{ expand: true, cwd: '<%= bowerDir %>/jquery', src: ['jquery.js'], dest: 'assets/js' }
+					{ expand: true, cwd: '<%= bowerDir %>/ie-html5/dist', src: ['*'], dest: '<%= assetsDir %>/js' },
 				]
+			},
+			iejson: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ie-json/lib', src: ['json3.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			lodash: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/lodash/dist', src: ['lodash.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			ng: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ng', src: ['angular.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			ngcaptcha: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ng-captcha/release', src: ['angular-recaptcha.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			ngcookies: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ng-cookies', src: ['angular-cookies.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			ngi18n: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ng-i18n', src: ['angular-locale_en.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			ngresource: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ng-resource', src: ['angular-resource.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			ngrest: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ng-rest/dist', src: ['restangular.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			ngrouter: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ng-router', src: ['angular-route.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			ngsanitize: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ng-sanitize', src: ['angular-sanitize.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			ngstorage: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ng-storage/src', src: ['angularLocalStorage.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			ngtranslate: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ng-translate', src: ['angular-translate.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			ngupload: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ng-upload/dist', src: ['angular-file-upload.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			uibootstrap: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ui-bootstrap', src: ['ui-bootstrap-tpls.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			uirouter: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ui-router/release', src: ['angular-ui-router.js'], dest: '<%= assetsDir %>/js' }
+				]
+			}
+		},
+
+		less: {
+			bootstrap: {
+				options: {
+					ieCompat: true,
+					yuicompress: true,
+					paths: ['<%= assetsDir %>/less/bootstrap', '<%= assetsDir %>/tmp/bootstrap', '<%= bowerDir %>/bootstrap/less']
+				},
+				files: {
+					'<%= assetsDir %>/tmp/bootstrap.css': '<%= assetsDir %>/less/bootstrap/main.less'
+				}
+			},
+			fontawesome: {
+				options: {
+					ieCompat: true,
+					yuicompress: true,
+					paths: ['<%= assetsDir %>/less/font-awesome', '<%= assetsDir %>/tmp/font-awesome', '<%= bowerDir %>/font-awesome/less']
+				},
+				files: {
+					'<%= assetsDir %>/tmp/font-awesome.css': '<%= assetsDir %>/less/font-awesome/main.less'
+				}
+			}
+		},
+
+		concat: {
+			css: {
+				src: ['<%= assetsDir %>/tmp/bootstrap.css', '<%= assetsDir %>/tmp/font-awesome.css'],
+				dest: '<%= assetsDir %>/tmp/concat.css'
+			},
+			js: {
+				src: [
+					'<%= assetsDir %>/js/angular.js',
+					'<%= assetsDir %>/js/angular-cookies.js',
+					'<%= assetsDir %>/js/lodash.js',
+					'<%= assetsDir %>/js/angular-locale_en.js',
+					'<%= assetsDir %>/js/angular-resource.js',
+					'<%= assetsDir %>/js/restangular.js',
+					'<%= assetsDir %>/js/angular-route.js',
+					'<%= assetsDir %>/js/angular-sanitize.js',
+					'<%= assetsDir %>/js/angularLocalStorage.js',
+					'<%= assetsDir %>/js/angular-translate.js',
+					'<%= assetsDir %>/js/angular-file-upload.js',
+					'<%= assetsDir %>/js/ui-bootstrap-tpls.js',
+					'<%= assetsDir %>/js/angular-ui-router.js',
+					'<%= assetsDir %>/js/app.js',
+					'<%= assetsDir %>/js/controllers.js',
+					'<%= assetsDir %>/js/directives.js',
+					'<%= assetsDir %>/js/filters.js',
+					'<%= assetsDir %>/js/services.js',
+					'<%= assetsDir %>/js/bootstrap.js'
+				],
+				dest: '<%= assetsDir %>/tmp/concat.js'
 			}
 		},
 
@@ -43,34 +180,13 @@ module.exports = function(grunt) {
 					keepSpecialComments: 0
 				},
 				files: {
-					'public/style.min.css': ['assets/tmp/concat.css']
+					'<%= assetsDir %>/style.min.css': ['<%= assetsDir %>/tmp/concat.css']
 
 				}
 			}
 		},
 
-		less: {
-			bootstrap: {
-				options: {
-					ieCompat: true,
-					yuicompress: true,
-					paths: ['assets/less/bootstrap', 'assets/tmp/bootstrap', '<%= bowerDir %>/bootstrap/less']
-				},
-				files: {
-					'assets/tmp/bootstrap.css': 'assets/less/bootstrap/main.less'
-				}
-			},
-			fontawesome: {
-				options: {
-					ieCompat: true,
-					yuicompress: true,
-					paths: ['assets/less/font-awesome', 'assets/tmp/font-awesome', '<%= bowerDir %>/font-awesome/less']
-				},
-				files: {
-					'assets/tmp/font-awesome.css': 'assets/less/font-awesome/main.less'
-				}
-			}
-		},
+
 
 		uglify: {
 			options: {
@@ -78,13 +194,13 @@ module.exports = function(grunt) {
 			},
 			my_target: {
 				files: {
-					'public/script.min.js': ['assets/tmp/concat.js']
+					'<%= assetsDir %>/script.min.js': ['<%= assetsDir %>/tmp/concat.js']
 				}
 			}
 		},
 
 		watch: {
-			files: ['assets/less/**/*.less', 'app/views/**/*'],
+			files: ['<%= assetsDir %>/less/**/*.less', 'app/views/**/*'],
 			tasks: ['default']
 		}
 
