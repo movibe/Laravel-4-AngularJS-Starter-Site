@@ -11,11 +11,6 @@ module.exports = function(grunt) {
 		clean: ['<%= assetsDir %>/tmp'],
 
 		copy: {
-			application: {
-				files: [
-					{ expand: true, cwd: '<%= appDir %>', src: ['*.js'], dest: '<%= assetsDir %>/js' }
-				]
-			},
 			angular: {
 				files: [
 					{ expand: true, cwd: '<%= bowerDir %>/angular', src: ['angular.js'], dest: '<%= assetsDir %>/js' }
@@ -163,11 +158,6 @@ module.exports = function(grunt) {
 					'<%= assetsDir %>/js/angular-file-upload.js',
 					'<%= assetsDir %>/js/ui-bootstrap-tpls.js',
 					'<%= assetsDir %>/js/angular-ui-router.js',
-					'<%= assetsDir %>/js/app.js',
-					'<%= assetsDir %>/js/controllers.js',
-					'<%= assetsDir %>/js/directives.js',
-					'<%= assetsDir %>/js/filters.js',
-					'<%= assetsDir %>/js/services.js',
 					'<%= assetsDir %>/js/bootstrap.js'
 				],
 				dest: '<%= assetsDir %>/tmp/concat.js'
@@ -186,8 +176,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-
-
 		uglify: {
 			options: {
 				preserveComments: false
@@ -200,7 +188,7 @@ module.exports = function(grunt) {
 		},
 
 		watch: {
-			files: ['<%= assetsDir %>/less/**/*.less', 'app/views/**/*'],
+			files: ['<%= assetsDir %>/less/**/*.less'],
 			tasks: ['default']
 		}
 
