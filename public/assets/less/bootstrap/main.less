@@ -5,6 +5,20 @@
  */
 
 @import "bootstrap.less";
-@import "bootswatch.less";
 
-// Add CSS/LESS Customizations here....
+
+ /********************
+ *   Form Validation
+ ********************/
+
+.form-horizontal input.ng-invalid.ng-dirty {
+  background-color: rgba(255, 135, 135, 0.66);
+  border: 2px solid;
+  border-color: red;
+}
+
+.form-horizontal input.ng-valid.ng-dirty {
+  background-color: rgba(120,250,137,.54);
+  border: 2px solid;
+  border-color: green;
+}

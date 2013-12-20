@@ -1,7 +1,8 @@
 angular.module("myApp",['ngResource','ngSanitize', 'ngRoute', 'ui.bootstrap'])
     .config(['$routeProvider', '$locationProvider',function($routeProvider, $locationProvider){
-        $routeProvider.when('/',{templateUrl:'app/partials/login.html', controller: 'loginController'})
-        $routeProvider.when('/home',{templateUrl:'app/partials/home.html', controller: 'homeController'})
+        $routeProvider.when('/',{templateUrl:'app/views/login.html', controller: 'loginController'})
+        $routeProvider.when('/register',{templateUrl:'app/views/register.html', controller: 'registerController'})
+        $routeProvider.when('/home',{templateUrl:'app/views/home.html', controller: 'homeController'})
         $routeProvider.otherwise({redirectTo :'/'})
 		$locationProvider.html5Mode(true);
     }]).config(function($httpProvider){

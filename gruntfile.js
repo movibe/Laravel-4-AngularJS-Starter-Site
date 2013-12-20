@@ -24,7 +24,8 @@ module.exports = function(grunt) {
 			bootstrap: {
 				files: [
 					{ expand: true, cwd: '<%= bowerDir %>/bootstrap/less', src: ['bootstrap.less'], dest: '<%= assetsDir %>/tmp/bootstrap' },
-					{ expand: true, cwd: '<%= bowerDir %>/bootstrap/dist/js', src: ['bootstrap.js'], dest: '<%= assetsDir %>/js' }
+					{ expand: true, cwd: '<%= bowerDir %>/bootstrap/dist/js', src: ['bootstrap.js'], dest: '<%= assetsDir %>/js' },
+					{ expand: true, cwd: '<%= bowerDir %>/bootstrap/dist/fonts', src: ['*'], dest: '<%= assetsDir %>/fonts' }
 				]
 			},
 			fontawesome: {
@@ -112,6 +113,16 @@ module.exports = function(grunt) {
 				files: [
 					{ expand: true, cwd: '<%= bowerDir %>/ui-router/release', src: ['angular-ui-router.js'], dest: '<%= assetsDir %>/js' }
 				]
+			},
+			ngtable: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/ng-table', src: ['ng-table.js'], dest: '<%= assetsDir %>/js' }
+				]
+			},
+			jquery: {
+				files: [
+					{ expand: true, cwd: '<%= bowerDir %>/jquery', src: ['jquery.js'], dest: '<%= assetsDir %>/js' }
+				]
 			}
 		},
 
@@ -158,6 +169,8 @@ module.exports = function(grunt) {
 					'<%= assetsDir %>/js/angular-file-upload.js',
 					'<%= assetsDir %>/js/ui-bootstrap-tpls.js',
 					'<%= assetsDir %>/js/angular-ui-router.js',
+					'<%= assetsDir %>/js/ng-table.js',
+					'<%= assetsDir %>/js/jquery.js',
 					'<%= assetsDir %>/js/bootstrap.js'
 				],
 				dest: '<%= assetsDir %>/tmp/concat.js'
@@ -189,7 +202,7 @@ module.exports = function(grunt) {
 
 		watch: {
 			files: ['<%= assetsDir %>/less/**/*.less'],
-			tasks: ['default']
+			tasks: ['watching']
 		}
 
 	});
@@ -203,5 +216,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 
 	grunt.registerTask('default', ['copy', 'less', 'concat', 'cssmin', 'uglify', 'clean']);
+	grunt.registerTask('watching', ['less', 'concat', 'cssmin', 'clean']);
 
 };

@@ -24,7 +24,9 @@
 		"ng-storage": "agrublev/angularLocalStorage",
 		"ng-upload": "danialfarid/angular-file-upload",
 		"ie-json": "bestiejs/json3",
-		"ie-html5": "aFarkas/html5shiv"
+		"ie-html5": "aFarkas/html5shiv",
+		"ng-table": "esvit/ng-table",
+		"jquery" : "jquery/jquery"
 	},
 	"resolutions": {
 		"angular": "1.2.6"

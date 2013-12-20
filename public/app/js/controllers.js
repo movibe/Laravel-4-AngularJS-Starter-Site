@@ -26,7 +26,37 @@ angular.module('myApp')
         }
 
 
-})
+	})
+
+	.controller('registerController',function($scope,$sanitize,$location,Authenticate,Flash){
+
+		/********
+		 * Alerts
+		 ********/
+		$scope.alerts = [];
+		$scope.closeAlert = function(index) {
+			$scope.alerts.splice(index, 1);
+		};
+
+		/********
+		 * Login
+		 ********/
+		$scope.login = function(){
+			Authenticate.save({
+				'email': $sanitize($scope.email),
+				'password': $sanitize($scope.password)
+			},function() {
+				$location.path('/home')
+				Flash.clear()
+				sessionStorage.authenticated = true;
+			},function(response){
+				$scope.alerts = [{ type: "warning", msg: response.data.message }];
+			})
+		}
+
+
+	})
+
     .controller('homeController',function($scope,$location,Authenticate, Movies,Flash){
         if (!sessionStorage.authenticated){
             $location.path('/')
