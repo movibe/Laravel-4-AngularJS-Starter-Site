@@ -1,13 +1,13 @@
-# Laravel 4 & AngularJS Starter Site
-## Installation
+## Laravel 4 & AngularJS Starter Site
+### Installation
 
-### Requirements
+#### Requirements
     PHP >= 5.3
     NodeJS
     Bower
 	Grunt
 
-### Step 1 - Install dependencies
+#### Step 1 - Install dependencies
 
     composer install --dev
     npm install
@@ -18,7 +18,7 @@ If you have issues using npm install use the code below
 
     npm install --no-bin-links
 
-## Packages
+### Packages
 
 #### Composer Packages
 * [Ardent](https://github.com/laravelbook/ardent)
@@ -56,12 +56,13 @@ If you have issues using npm install use the code below
 * [grunt-contrib-watch](https://github.com/gruntjs/grunt-contrib-watch)
     * Run predefined tasks whenever watched file patterns are added, changed or deleted.
 
-## Laravel 4 & AngularJS E2E secured SPA
+### Laravel 4 & AngularJS E2E secured SPA
 
 Link to the article: http://blog.neoxia.com/laravel4-and-angularjs/
 
-## The MIT License (MIT)
+### Licensing
 
+The MIT License (MIT)
 Copyright (c) 2014 Benjamin Katznelson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
