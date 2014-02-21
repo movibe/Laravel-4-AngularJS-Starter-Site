@@ -11,10 +11,9 @@
 		}
 	],
 	"require": {
-		"laravel/framework": "4.0.*",
-		"laravelbook/ardent": "2.1.x",
+		"laravel/framework": "4.1.*",
+		"laravelbook/ardent": "dev-master",
 		"zizaco/entrust": "dev-master",
-		"robclancy/presenter": "1.0.*",
 		"j20/php-uuid": "dev-master"
 	},
 	"require-dev": {
