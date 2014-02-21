@@ -56,6 +56,10 @@ This will skip the development packages and ensure the version of the packages i
 
 NEVER run `php composer.phar update` on your production server.
 
+Also, make sure that the command line interface for grunt is installed.
+
+    npm install -g grunt-cli
+
 #### Step 1: Install dependencies
 
     composer install --dev
