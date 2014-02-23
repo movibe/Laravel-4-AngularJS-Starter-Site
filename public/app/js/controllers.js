@@ -57,7 +57,7 @@ angular.module('myApp')
 
 	})
 
-    .controller('homeController',function($scope,$location,Authenticate, Movies,Flash){
+    .controller('movieController',function($scope,$location,Authenticate, Movies,Flash){
         if (!sessionStorage.authenticated){
             $location.path('/')
             Flash.show("you should be authenticated to access this page")

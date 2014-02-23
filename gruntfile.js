@@ -121,7 +121,7 @@ module.exports = function(grunt) {
 			},
 			jquery: {
 				files: [
-					{ expand: true, cwd: '<%= bowerDir %>/jquery', src: ['jquery.js'], dest: '<%= assetsDir %>/js' }
+					{ expand: true, cwd: '<%= bowerDir %>/jquery/dist', src: ['jquery.js'], dest: '<%= assetsDir %>/js' }
 				]
 			}
 		},
