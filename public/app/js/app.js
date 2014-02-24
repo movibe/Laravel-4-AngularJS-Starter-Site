@@ -14,7 +14,7 @@ angular.module("myApp",['ngResource','ngSanitize', 'ngRoute', 'ui.bootstrap', 'u
 				controller: 'homeController'
 			})
 			.state('movie', {
-				url: "/",
+				url: "/movie",
 				templateUrl: "app/views/movie.html",
 				controller: 'movieController'
 			})
