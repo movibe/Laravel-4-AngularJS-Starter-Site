@@ -11,13 +11,13 @@
 		}
 	],
 	"require": {
-		"laravel/framework": "4.1.*",
+		"laravel/framework": "4.*",
 		"laravelbook/ardent": "dev-master",
 		"zizaco/entrust": "dev-master",
 		"j20/php-uuid": "dev-master"
 	},
 	"require-dev": {
-		"way/generators": "dev-master",
+		"dollar/generators": "dev-master",
 		"mockery/mockery": "dev-master@dev",
 		"barryvdh/laravel-ide-helper": "dev-master"
 	},
