@@ -1,15 +1,17 @@
 {
-    "name": "bktz/laravel4-angularjs-starter-site",
-    "description": "Laravel 4 AngularJS Starter Site",
-    "keywords": ["laravel", "angularjs", "starter"],
+	"name": "bktz/laravel4-angularjs-starter-site",
+	"description": "Laravel 4 AngularJS Starter Site",
+	"keywords": ["laravel", "angularjs", "starter"],
 	"license": "MIT",
-	"authors": [
-		{
-			"name": "Benjamin Katznelson",
-			"homepage": "http://ca.linkedin.com/in/benikatznelson",
-			"role": "Developer"
-		}
-	],
+	"authors": [{
+		"name": "Benjamin Katznelson",
+		"homepage": "http://ca.linkedin.com/in/benikatznelson",
+		"role": "Developer"
+	}, {
+		"name": "Willian Ribeiro Angelo",
+		"homepage": "http://github.com/movibe",
+		"role": "Developer"
+	}],
 	"require": {
 		"laravel/framework": "4.*",
 		"laravelbook/ardent": "dev-master",
@@ -19,7 +21,8 @@
 	"require-dev": {
 		"dollar/generators": "dev-master",
 		"mockery/mockery": "dev-master@dev",
-		"barryvdh/laravel-ide-helper": "dev-master"
+		"barryvdh/laravel-ide-helper": "dev-master",
+		"barryvdh/laravel-debugbar": "1.*"
 	},
 	"autoload": {
 		"classmap": [
@@ -40,6 +43,9 @@
 		],
 		"post-update-cmd": [
 			"php artisan optimize"
+		],
+		"post-update-cmd": [
+			"php artisan debugbar:publish"
 		]
 	},
 	"config": {
